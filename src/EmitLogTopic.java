@@ -11,7 +11,6 @@ public class EmitLogTopic {
     public static void main(String[] args) throws IOException, TimeoutException {
 
         Connection connection = null;
-        //Channel channel = null;
         try {
             connection = MyConnection.getConnection();
             try(Channel channel = connection.createChannel();) {

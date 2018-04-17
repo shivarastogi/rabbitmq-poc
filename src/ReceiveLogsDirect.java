@@ -8,8 +8,6 @@ public class ReceiveLogsDirect {
     public static void main(String[] args) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("192.168.99.100");
-//        try(Connection connection = factory.newConnection();
-//            Channel channel = connection.createChannel()){
 
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
@@ -36,6 +34,5 @@ public class ReceiveLogsDirect {
               }
             };
             channel.basicConsume(queueName,true,consumer);
-//        }
     }
 }

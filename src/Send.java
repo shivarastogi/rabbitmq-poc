@@ -6,7 +6,7 @@ import java.util.concurrent.TimeoutException;
 
 public class Send
 {
-    public final static String QUEUE_NAME = "FirstMsg";
+    public final static String QUEUE_NAME = "FirstQueue";
 
     public static void main(String args[])
     {
@@ -19,7 +19,7 @@ public class Send
 
             if (channel != null) {
                 channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-                String message = "Hello World";
+                String message = "Hello World!";
                 channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
                 System.out.print("[x] Sent '" + message + "'");
             }
@@ -27,7 +27,7 @@ public class Send
             connection.close();
         }
         catch (IOException | TimeoutException e) {
-            System.out.println("Error in Send : " + e);
+            System.out.println("Error in Send : " + e.getMessage());
         }
     }
 }
